@@ -270,4 +270,9 @@ const startServer = async () => {
     }
 })();
 
+app.use(express.static("./client/buid"));
+app.get("*", (req, res) => {
+      res.sendFile(path.resolve(_dirname, "client","build","index.html"));
+});
+
 module.exports = server;
